@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:state_pressed="true" android:color="@color/colorButtonRedOverlap"/> <!-- pressed -->
-    <item android:state_focused="true" android:color="@color/colorButtonRedOverlap"/> <!-- focused -->
-    <item android:color="@color/colorButtonRedOverlap"/> <!-- default -->
+    <item android:state_pressed="true" android:color="@color/colorButtonRedHighLight"/> <!-- pressed -->
+    <item android:state_focused="true" android:color="@color/colorButtonRedHighLight"/> <!-- focused -->
+    <item android:color="@color/colorButtonRedHighLight"/> <!-- default -->
 </selector>

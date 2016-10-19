@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Base application theme. -->
+    <style name="LoginTheme" parent="AppTheme">
+        <item name="android:background">@drawable/background_two</item>
+    </style>
 
     <style name="RadiusButtonRectangle">
         <item name="android:background">@drawable/radius_button_rectangle_click</item>
