@@ -4,6 +4,11 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+
+import com.example.jason.learnenglisheveryday.R;
+import com.example.jason.learnenglisheveryday.Utils.Helpers;
+import com.example.jason.learnenglisheveryday.Utils.Utils;
 
 import butterknife.ButterKnife;
 
@@ -21,4 +26,5 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     protected abstract void initView();
+
 }

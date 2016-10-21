@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">LearnEnglishEveryday</string>
+
+    <!--NOTIFY POSITIVE-->
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="skip">Skip</string>
+    <string name="back_to_login">Back to Login</string>
+
+    <!--RE LOG IN METHOD-->
+    <string name="re_login_alert_title">Login Result</string>
+    <string name="re_login_alert_message">This account has been signed into another device. Please sign in again.</string>
+
 </resources>
