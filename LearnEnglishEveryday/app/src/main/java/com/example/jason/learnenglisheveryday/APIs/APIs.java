@@ -13,4 +13,8 @@ public interface APIs {
     //Check sign_in
     @POST("user/client/login")
     Call<JsonObject> gotoLogIn(@Body JsonObject account);
+
+    //Check sign_up
+    @POST("user/client/sign_up")
+    Call<JsonObject> gotoSignUp(@Body JsonObject account);
 }

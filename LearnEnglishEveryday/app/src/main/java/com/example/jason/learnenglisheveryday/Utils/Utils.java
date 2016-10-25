@@ -9,15 +9,21 @@ import android.os.Build;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jason.learnenglisheveryday.MesageDialogs.JsAlertDialog;
 import com.example.jason.learnenglisheveryday.MesageDialogs.JsProgressDialog;
 import com.example.jason.learnenglisheveryday.R;
+import com.example.jason.learnenglisheveryday.customs.FragmentTransactionExtended;
 
 /**
  * Created by jason on 21/10/2016.
@@ -96,7 +102,7 @@ public class Utils {
      * @param toolbar
      * @param context
      */
-    public void setToolbarTypeface(Toolbar toolbar, Context context){
+    private void setToolbarTypeface(Toolbar toolbar, Context context){
         Typeface titleFont = Typeface.createFromAsset(context.getAssets(), "ProximaNova-Regular.ttf");
         for(int i = 0; i < toolbar.getChildCount(); i++){
             View view = toolbar.getChildAt(i);
@@ -127,5 +133,78 @@ public class Utils {
         setTypeface(tv, context);
 
         snack.show();
+    }
+
+    /**
+     * hideKeyBoard
+     * @param activity
+     */
+    public void hideKeyBoard(Activity activity){
+        View view = null;
+        try {
+            view = activity.getCurrentFocus();
+        }catch(NullPointerException e){
+            e.printStackTrace();
+        }
+        if (view != null) {
+            InputMethodManager imm = (InputMethodManager)activity.getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+    }
+
+    /**
+     * Setup toolbar
+     * @param activity
+     * @param toolbar
+     * @param resString
+     * @param resDrawable
+     */
+    public void setupToolbar(Activity activity, Toolbar toolbar, int resString, int resDrawable){
+        ((AppCompatActivity)activity).setSupportActionBar(toolbar);
+        ((AppCompatActivity)activity).getSupportActionBar().setTitle(activity.getString(resString));
+        toolbar.setTitleTextColor(Color.WHITE);
+        setToolbarTypeface(toolbar, activity.getApplicationContext());
+        toolbar.setNavigationIcon(resDrawable);
+    }
+
+    /**
+     * Setup toolbar
+     * @param activity
+     * @param toolbar
+     * @param resString
+     */
+    public void setupToolbar(Activity activity, Toolbar toolbar, int resString){
+        ((AppCompatActivity)activity).setSupportActionBar(toolbar);
+        ((AppCompatActivity)activity).getSupportActionBar().setTitle(activity.getString(resString));
+        toolbar.setTitleTextColor(Color.WHITE);
+        setToolbarTypeface(toolbar, activity.getApplicationContext());
+    }
+
+    /**
+     * Replace second fragment
+     * @param activity
+     * @param mFirstFragment
+     * @param mSecondFragment
+     * @param optionSelected
+     */
+    public void ReplaceSecondFragment(Activity activity, Fragment mFirstFragment, Fragment mSecondFragment, int optionSelected){
+        FragmentManager fm = ((AppCompatActivity)activity).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        FragmentTransactionExtended fragmentTransactionExtended = new FragmentTransactionExtended(activity, fragmentTransaction, mFirstFragment, mSecondFragment, R.id.content_fragment);
+        fragmentTransactionExtended.addTransition(optionSelected);
+        fragmentTransactionExtended.commit();
+    }
+
+    /**
+     * Replace first fragment
+     * @param activity
+     * @param fragment
+     * @param frameLayout
+     */
+    public void ReplaceFirstFragment(Activity activity, Fragment fragment, int frameLayout){
+        FragmentManager fm = ((AppCompatActivity)activity).getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fm.beginTransaction();
+        fragmentTransaction.replace(frameLayout, fragment);
+        fragmentTransaction.commit();
     }
 }

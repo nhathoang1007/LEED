@@ -22,5 +22,6 @@ public class Constants {
     public static final int RETROFIT_RESPONSE_SUCCESS_4 = 4;
     public static final int RETROFIT_RESPONSE_ON_FAILURE = -1;
 
+    public static final int PRE_MODE = 1;
     public static final String EMPTY_STRING = "";
 }

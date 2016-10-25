@@ -1,34 +1,23 @@
-package com.example.jason.learnenglisheveryday.activities.Login;
+package com.example.jason.learnenglisheveryday.activities.SignUp;
 
 import android.content.Context;
-import android.os.Handler;
-import android.util.Log;
 
 import com.example.jason.learnenglisheveryday.APIs.APIsConnection;
 import com.example.jason.learnenglisheveryday.APIs.RetrofitManager;
-import com.example.jason.learnenglisheveryday.Utils.GSonBuilderManager;
 import com.example.jason.learnenglisheveryday.Utils.Helpers;
-import com.example.jason.learnenglisheveryday.Utils.Utils;
-import com.example.jason.learnenglisheveryday.entities.Account;
-import com.example.jason.learnenglisheveryday.localStogares.JSSharedPreference;
-import com.example.jason.learnenglisheveryday.localStogares.PreferenceConstants;
+import com.example.jason.learnenglisheveryday.activities.Login.ILoginModel;
 import com.google.gson.JsonObject;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Response;
 
 /**
- * Created by jason on 21/10/2016.
+ * Created by jason on 25/10/2016.
  */
-public class LoginModel implements ILoginModel{
-
+public class SignUpModel implements ILoginModel {
     @Override
     public void checkAccount(Context context, String email, String password, final LoginListener listener) {
         List<String> strings = new ArrayList<>();
@@ -49,7 +38,7 @@ public class LoginModel implements ILoginModel{
 
     private void callCheckAccount(final Context context, JsonObject jsonObject, final LoginListener listener){
         RetrofitManager mRetrofitManage = new RetrofitManager(60);
-        Call<JsonObject> call = mRetrofitManage.getApIs().gotoLogIn(jsonObject);
+        Call<JsonObject> call = mRetrofitManage.getApIs().gotoSignUp(jsonObject);
         new APIsConnection<JsonObject>() {
             @Override
             protected void onCallSuccess(Response response) {

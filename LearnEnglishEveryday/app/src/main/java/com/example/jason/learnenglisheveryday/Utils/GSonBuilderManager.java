@@ -43,12 +43,4 @@ public class GSonBuilderManager {
         }
         return mJsonObject;
     }
-
-//    public String asJson() {
-//        return new Gson().toJson(this);
-//    }
-//
-//    public Category convertFromJson(String json) {
-//        return new Gson().fromJson(json, Category.class);
-//    }
 }

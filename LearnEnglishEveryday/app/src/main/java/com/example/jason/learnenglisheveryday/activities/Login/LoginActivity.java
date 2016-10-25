@@ -17,7 +17,10 @@ import com.example.jason.learnenglisheveryday.Utils.Constants;
 import com.example.jason.learnenglisheveryday.Utils.Helpers;
 import com.example.jason.learnenglisheveryday.Utils.Utils;
 import com.example.jason.learnenglisheveryday.activities.BaseActivity;
+import com.example.jason.learnenglisheveryday.activities.Home.HomeActivity;
 import com.example.jason.learnenglisheveryday.activities.SignUp.SignUpActivity;
+import com.example.jason.learnenglisheveryday.localStogares.JSSharedPreference;
+import com.example.jason.learnenglisheveryday.localStogares.PreferenceConstants;
 
 import butterknife.BindView;
 import butterknife.BindViews;
@@ -35,26 +38,20 @@ public class LoginActivity extends BaseActivity implements ILoginView {
     @BindView(R.id.editText_password)
     EditText edtPassword;
 
-
-    @BindView(R.id.layout_root)
-    LinearLayout viewRoot;
-
     private ILoginPresenter mLoginPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
         Helpers.setFullScreen(this);
         ButterKnife.bind(this);
     }
 
     @Override
-    protected void initView() {
-        mLoginPresenter = new LoginPresenter(this);
-    }
-    @Override
     protected void onStart() {
         super.onStart();
+        mLoginPresenter = new LoginPresenter(this);
     }
 
     @Override
@@ -62,15 +59,21 @@ public class LoginActivity extends BaseActivity implements ILoginView {
         super.onResume();
     }
 
+    @OnClick(R.id.layout_root)
+    public void hideKeyBoard(){
+        Utils.getInstance().hideKeyBoard(activity);
+    }
+
     @OnClick(R.id.button_normalLogIn)
     public void loginNormal(){
+        Utils.getInstance().hideKeyBoard(activity);
         mLoginPresenter.checkAccount(context, Helpers.getString(edtEmail), Helpers.getString(edtPassword));
     }
 
     @OnClick(R.id.button_createNewAccount)
     public void createNewAccount(){
         startActivity(new Intent(this, SignUpActivity.class));
-        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        setStartActivityAnimation();
     }
 
     @Override
@@ -90,11 +93,13 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @Override
     public void loginSuccess() {
-
+        new JSSharedPreference(PreferenceConstants.LOGIN_PRE_NAME, this).saveAccountInformation( Helpers.getString(edtEmail), Helpers.getString(edtPassword), true);
     }
 
     @Override
     public void loginFail(int status) {
-        Utils.getInstance().showReLoginDialog(LoginActivity.this);
+        startActivity(new Intent(activity, HomeActivity.class));
+        setStartActivityAnimation();
+//        Utils.getInstance().showReLoginDialog(LoginActivity.this);
     }
 }

@@ -7,8 +7,15 @@
     <string name="skip">Skip</string>
     <string name="back_to_login">Back to Login</string>
 
+    <!--NOTIFY POSITIVE-->
+    <string name="home_title">Home</string>
+
     <!--RE LOG IN METHOD-->
     <string name="re_login_alert_title">Login Result</string>
+    <string name="sign_up_title">Sign up</string>
     <string name="re_login_alert_message">This account has been signed into another device. Please sign in again.</string>
+
+    <!-- VOCABULARY FUNCTION-->
+    <string name="vocabulary_title">Vocabulary</string>
 
 </resources>

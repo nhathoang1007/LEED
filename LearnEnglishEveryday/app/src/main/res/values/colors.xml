@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#172c3e</color>
-    <color name="colorPrimaryDark">#172c3e</color>
-    <color name="colorAccent">#215560</color>
+    <color name="colorPrimary">#215560</color>
+    <color name="colorPrimaryDark">#215560</color>
+    <color name="colorAccent">#3eba9b</color>
     <!--White-->
     <color name="white">#FFFFFF</color>
     <color name="white_overlap_99">#99ffffff</color>

@@ -12,17 +12,4 @@
     <style name="LoginTheme" parent="AppTheme">
         <item name="android:background">@drawable/background_two</item>
     </style>
-
-
-    <style name="RadiusButtonRectangle">
-        <item name="android:textColor">@color/black</item>
-        <item name="android:background">@drawable/radius_button_rectangle_click</item>
-        <item name="android:textSize">@dimen/button_text_size</item>
-    </style>
-
-    <style name="ButtonRectangleNoneColor">
-        <item name="android:textColor">@color/white</item>
-        <item name="android:background">@drawable/button_rectangle_none_color_click</item>
-        <item name="android:textSize">@dimen/button_text_size</item>
-    </style>
 </resources>
