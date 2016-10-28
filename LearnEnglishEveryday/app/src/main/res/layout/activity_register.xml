@@ -112,7 +112,7 @@
                     android:layout_height="match_parent"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    android:background="@drawable/bacground_button_rectangle_white_radius_5dp"
+                    android:background="@drawable/background_button_white"
                     app:mrl_rippleOverlay="true"
                     app:mrl_rippleColor="#000"
                     app:mrl_rippleAlpha="0.1"

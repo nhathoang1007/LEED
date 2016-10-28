@@ -58,9 +58,9 @@ public class CustomFooterTabBar extends LinearLayout {
     TextView tvAccountNotificationCount;
 
     private TapClickListener listener;
-    public static final int ACCOUNT_TAB_ID = 1;
-    public static final int HOME_TAB_ID = 0;
-    public static final int GROUPS_TAB_ID = 2;
+    public static final int ACCOUNT_TAB_ID = 2;
+    public static final int HOME_TAB_ID = 1;
+    public static final int GROUPS_TAB_ID = 0;
 
     public void setOnTabClickListener(TapClickListener listener){
         this.listener = listener;

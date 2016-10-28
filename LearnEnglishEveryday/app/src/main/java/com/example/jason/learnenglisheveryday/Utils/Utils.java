@@ -3,6 +3,7 @@ package com.example.jason.learnenglisheveryday.Utils;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -14,6 +15,8 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
 import android.view.Gravity;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -23,7 +26,11 @@ import android.widget.Toast;
 import com.example.jason.learnenglisheveryday.MesageDialogs.JsAlertDialog;
 import com.example.jason.learnenglisheveryday.MesageDialogs.JsProgressDialog;
 import com.example.jason.learnenglisheveryday.R;
+import com.example.jason.learnenglisheveryday.activities.BaseActivity;
+import com.example.jason.learnenglisheveryday.activities.Start.StartMainActivity;
 import com.example.jason.learnenglisheveryday.customs.FragmentTransactionExtended;
+import com.example.jason.learnenglisheveryday.localStogares.JSPreferenceManager;
+import com.example.jason.learnenglisheveryday.localStogares.LoginPreference;
 
 /**
  * Created by jason on 21/10/2016.
@@ -44,7 +51,7 @@ public class Utils {
      *
      * @return Utils
      */
-    public static Utils getInstance() {
+    public static synchronized Utils getInstance() {
         if(mUtils == null)
             mUtils = new Utils();
         return mUtils;
@@ -183,14 +190,15 @@ public class Utils {
     /**
      * Replace second fragment
      * @param activity
-     * @param mFirstFragment
      * @param mSecondFragment
      * @param optionSelected
      */
-    public void ReplaceSecondFragment(Activity activity, Fragment mFirstFragment, Fragment mSecondFragment, int optionSelected){
-        FragmentManager fm = ((AppCompatActivity)activity).getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fm.beginTransaction();
-        FragmentTransactionExtended fragmentTransactionExtended = new FragmentTransactionExtended(activity, fragmentTransaction, mFirstFragment, mSecondFragment, R.id.content_fragment);
+    public void replaceSecondFragment(Activity activity, Fragment mSecondFragment, int optionSelected){
+        String backStateName = mSecondFragment.getClass().getName();
+        FragmentManager manager = ((AppCompatActivity)activity).getSupportFragmentManager();
+        boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
+        FragmentTransaction mTransaction = manager.beginTransaction();
+        FragmentTransactionExtended fragmentTransactionExtended = new FragmentTransactionExtended(mTransaction, mSecondFragment, fragmentPopped, R.id.content_fragment);
         fragmentTransactionExtended.addTransition(optionSelected);
         fragmentTransactionExtended.commit();
     }
@@ -201,10 +209,21 @@ public class Utils {
      * @param fragment
      * @param frameLayout
      */
-    public void ReplaceFirstFragment(Activity activity, Fragment fragment, int frameLayout){
+    public void replaceFirstFragment(Activity activity, Fragment fragment, int frameLayout){
         FragmentManager fm = ((AppCompatActivity)activity).getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fm.beginTransaction();
         fragmentTransaction.replace(frameLayout, fragment);
         fragmentTransaction.commit();
+    }
+
+    /**
+     * Setup HyperLink textView
+     * @param textView
+     */
+    public void setupHyperLink(TextView textView){
+        String textViewContent = textView.getText().toString();
+        SpannableString spannableString = new SpannableString(textViewContent);
+        spannableString.setSpan(new UnderlineSpan(), 0, spannableString.length(), 0);
+        textView.setText(spannableString);
     }
 }

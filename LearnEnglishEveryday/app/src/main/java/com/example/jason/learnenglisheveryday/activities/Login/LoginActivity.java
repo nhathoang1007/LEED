@@ -4,26 +4,18 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
 import com.example.jason.learnenglisheveryday.R;
-import com.example.jason.learnenglisheveryday.Utils.Constants;
 import com.example.jason.learnenglisheveryday.Utils.Helpers;
 import com.example.jason.learnenglisheveryday.Utils.Utils;
 import com.example.jason.learnenglisheveryday.activities.BaseActivity;
 import com.example.jason.learnenglisheveryday.activities.Home.HomeActivity;
-import com.example.jason.learnenglisheveryday.activities.SignUp.SignUpActivity;
-import com.example.jason.learnenglisheveryday.localStogares.JSSharedPreference;
-import com.example.jason.learnenglisheveryday.localStogares.PreferenceConstants;
+import com.example.jason.learnenglisheveryday.activities.Register.RegisterActivity;
+import com.example.jason.learnenglisheveryday.localStogares.JSPreferenceManager;
 
 import butterknife.BindView;
-import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -72,13 +64,8 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @OnClick(R.id.button_createNewAccount)
     public void createNewAccount(){
-        startActivity(new Intent(this, SignUpActivity.class));
+        startActivity(new Intent(this, RegisterActivity.class));
         setStartActivityAnimation();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     @Override
@@ -93,13 +80,19 @@ public class LoginActivity extends BaseActivity implements ILoginView {
 
     @Override
     public void loginSuccess() {
-        new JSSharedPreference(PreferenceConstants.LOGIN_PRE_NAME, this).saveAccountInformation( Helpers.getString(edtEmail), Helpers.getString(edtPassword), true);
+        JSPreferenceManager.getInstance().getLoginPreference(context).saveAccountInformation(Helpers.getString(edtEmail), Helpers.getString(edtPassword));
     }
 
     @Override
     public void loginFail(int status) {
+        JSPreferenceManager.getInstance().getLoginPreference(context).saveAccountInformation(Helpers.getString(edtEmail), Helpers.getString(edtPassword));
         startActivity(new Intent(activity, HomeActivity.class));
         setStartActivityAnimation();
-//        Utils.getInstance().showReLoginDialog(LoginActivity.this);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setBackAnimation();
     }
 }

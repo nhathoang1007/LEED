@@ -1,53 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:padding="20dp">
-            <android.support.v4.widget.CircleImageView
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/icon_avatar_default"
-                app:civ_border_color="@color/colorPrimaryDark"
-                app:civ_border_width="2dp"/>
-            <LinearLayout
-                android:layout_marginLeft="10dp"
-                android:gravity="center_vertical"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Student Name"
-                    android:textColor="#000"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="English is the best luggage for us to do anything"
-                    android:textSize="10sp"/>
-            </LinearLayout>
-        </LinearLayout>
-        <include layout="@layout/double_line"/>
-        <LinearLayout
-            android:padding="20dp"
+            android:visibility="gone"
+            android:id="@+id/account_login_register"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:layout_width="wrap_content"
+            <include layout="@layout/double_line"/>
+            <com.balysv.materialripple.MaterialRippleLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/button_login_register"
+                android:background="@drawable/background_button_white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notifications"
-                android:textColor="#000"/>
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleColor="#000"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleHover="true">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/icon_power"
+                    android:drawablePadding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_chevron_right_15dp"
+                    android:text="Login or register"
+                    android:textColor="#000"/>
+            </com.balysv.materialripple.MaterialRippleLayout>
+            <include layout="@layout/line"/>
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:background="#FFF"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="20dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/icon_avatar_default"/>
+                <LinearLayout
+                    android:layout_marginLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Student Name"
+                        android:textColor="#000"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="English is the best luggage for us to do anything"
+                        android:textSize="10sp"/>
+                </LinearLayout>
+            </LinearLayout>
+            <include layout="@layout/double_line"/>
+            <LinearLayout
+                android:background="#FFF"
+                android:padding="20dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:gravity="center_vertical"
+                        android:drawableLeft="@drawable/icon_notification"
+                        android:drawablePadding="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Notifications"
+                        android:textColor="#000" />
+                    <RelativeLayout
+                        android:alpha="0.5"
+                        android:layout_alignParentRight="true"
+                        android:background="@drawable/circle_notification"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="5"
+                            android:textSize="11sp"
+                            android:textColor="#FFF"/>
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+            <include layout="@layout/double_line"/>
+            <com.balysv.materialripple.MaterialRippleLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/button_setting"
+                android:background="@drawable/background_button_white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleColor="#000"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleHover="true">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/icon_settings"
+                    android:drawablePadding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_chevron_right_15dp"
+                    android:text="Setting"
+                    android:textColor="#000"/>
+            </com.balysv.materialripple.MaterialRippleLayout>
+            <include layout="@layout/line"/>
+            <com.balysv.materialripple.MaterialRippleLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/button_about_us"
+                android:background="@drawable/background_button_white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleColor="#000"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleHover="true">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/icon_about_us"
+                    android:drawablePadding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_chevron_right_15dp"
+                    android:text="About Us"
+                    android:textColor="#000"/>
+            </com.balysv.materialripple.MaterialRippleLayout>
+            <include layout="@layout/line"/>
+            <com.balysv.materialripple.MaterialRippleLayout
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/button_logout"
+                android:background="@drawable/background_button_white"
+                android:paddingLeft="20dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:paddingRight="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:mrl_rippleOverlay="true"
+                app:mrl_rippleColor="#000"
+                app:mrl_rippleAlpha="0.1"
+                app:mrl_rippleHover="true">
+                <TextView
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/icon_logout"
+                    android:drawablePadding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableRight="@drawable/icon_chevron_right_15dp"
+                    android:text="Log out"
+                    android:textColor="#000"/>
+            </com.balysv.materialripple.MaterialRippleLayout>
+            <include layout="@layout/line"/>
         </LinearLayout>
     </LinearLayout>
 

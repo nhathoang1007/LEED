@@ -12,6 +12,8 @@ import com.example.jason.learnenglisheveryday.R;
 import com.example.jason.learnenglisheveryday.customs.CustomFunctionsLayout;
 import com.example.jason.learnenglisheveryday.fragments.BaseFragment;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -23,18 +25,16 @@ public class HomeFragment extends BaseFragment {
     @BindView(R.id.function_1)
     CustomFunctionsLayout functionsLayout_1;
 
-
     @BindView(R.id.function_2)
     CustomFunctionsLayout functionsLayout_2;
-
 
     @BindView(R.id.function_3)
     CustomFunctionsLayout functionsLayout_3;
 
-
     @BindView(R.id.function_4)
     CustomFunctionsLayout functionsLayout_4;
 
+    private String[] titles = {"Vocabulary", "Listening", "Speaking", "Testing"};
 
     @Nullable
     @Override
@@ -42,11 +42,13 @@ public class HomeFragment extends BaseFragment {
         super.onCreateView(inflater, container, savedInstanceState);
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         ButterKnife.bind(this, view);
+        setToolbarTitle("Home");
         setFunctionClick(functionsLayout_1, 1);
         setFunctionClick(functionsLayout_2, 2);
         setFunctionClick(functionsLayout_3, 3);
         setFunctionClick(functionsLayout_4, 4);
         setFunctionRate();
+        setFunctionTitle(titles);
         return view;
     }
 
@@ -73,4 +75,12 @@ public class HomeFragment extends BaseFragment {
         functionsLayout_3.setFunctionRate(2);
         functionsLayout_4.setFunctionRate(1);
     }
+
+    private void setFunctionTitle(String[] titles){
+        functionsLayout_1.setFunctionTitle(titles[0]);
+        functionsLayout_2.setFunctionTitle(titles[1]);
+        functionsLayout_3.setFunctionTitle(titles[2]);
+        functionsLayout_4.setFunctionTitle(titles[3]);
+    }
+
 }

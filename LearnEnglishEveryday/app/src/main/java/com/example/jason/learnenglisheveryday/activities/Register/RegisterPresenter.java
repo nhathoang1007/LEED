@@ -1,4 +1,4 @@
-package com.example.jason.learnenglisheveryday.activities.SignUp;
+package com.example.jason.learnenglisheveryday.activities.Register;
 
 import android.content.Context;
 
@@ -6,19 +6,18 @@ import com.example.jason.learnenglisheveryday.Utils.Utils;
 import com.example.jason.learnenglisheveryday.activities.Login.ILoginModel;
 import com.example.jason.learnenglisheveryday.activities.Login.ILoginPresenter;
 import com.example.jason.learnenglisheveryday.activities.Login.ILoginView;
-import com.example.jason.learnenglisheveryday.activities.Login.LoginModel;
 
 /**
  * Created by jason on 25/10/2016.
  */
-public class SignUpPresenter implements ILoginPresenter, ILoginModel.LoginListener {
+public class RegisterPresenter implements ILoginPresenter, ILoginModel.LoginListener {
 
     private ILoginView mView;
     private ILoginModel mLoginModel;
 
-    public SignUpPresenter(ILoginView mView) {
+    public RegisterPresenter(ILoginView mView) {
         this.mView = mView;
-        mLoginModel = new SignUpModel();
+        mLoginModel = new RegisterModel();
     }
 
     @Override

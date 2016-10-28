@@ -1,4 +1,4 @@
-package com.example.jason.learnenglisheveryday.fragments.TestVocabulary;
+package com.example.jason.learnenglisheveryday.fragments.Testing;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

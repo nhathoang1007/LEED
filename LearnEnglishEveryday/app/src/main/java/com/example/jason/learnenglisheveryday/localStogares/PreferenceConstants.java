@@ -17,5 +17,5 @@ public class PreferenceConstants {
     public static final String PROFILE_PRE_NAME = "PROFILE_PRE_NAME";
     public static final String PROFILE_NAME = "PROFILE_NAME";
     public static final String PROFILE_AGE = "PROFILE_AGE";
-    public static final String PROFILE_AVARTAR_URL = "PROFILE_AVARTAR_URL";
+    public static final String PROFILE_AVARTAR_URL = "PROFILE_AVATAR_URL";
 }

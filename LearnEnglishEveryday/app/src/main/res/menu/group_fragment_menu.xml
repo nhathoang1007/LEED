@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_search_group"
+        android:icon="@drawable/icon_search"
+        android:title="Add group"
+        app:showAsAction="always" />
+    <item
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_add_group"
+        android:icon="@drawable/icon_add_group"
+        android:title="Add group"
+        app:showAsAction="always" />
+</menu>

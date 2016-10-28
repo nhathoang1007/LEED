@@ -10,4 +10,6 @@
     <color name="black">#000000</color>
     <color name="black_overlap_55">#55000000</color>
     <color name="red">#fc0000</color>
+    <!--Background f0f0f0-->
+    <color name="background_default">#f0f0f0</color>
 </resources>

@@ -1,24 +1,13 @@
 package com.example.jason.learnenglisheveryday.activities.Login;
 
 import android.content.Context;
-import android.os.Handler;
-import android.util.Log;
 
 import com.example.jason.learnenglisheveryday.APIs.APIsConnection;
 import com.example.jason.learnenglisheveryday.APIs.RetrofitManager;
-import com.example.jason.learnenglisheveryday.Utils.GSonBuilderManager;
 import com.example.jason.learnenglisheveryday.Utils.Helpers;
-import com.example.jason.learnenglisheveryday.Utils.Utils;
-import com.example.jason.learnenglisheveryday.entities.Account;
-import com.example.jason.learnenglisheveryday.localStogares.JSSharedPreference;
-import com.example.jason.learnenglisheveryday.localStogares.PreferenceConstants;
 import com.google.gson.JsonObject;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import retrofit2.Call;
@@ -53,7 +42,7 @@ public class LoginModel implements ILoginModel{
         new APIsConnection<JsonObject>() {
             @Override
             protected void onCallSuccess(Response response) {
-                listener.onLoginSuccess();
+                listener.onLoginFail(0);
             }
 
             @Override

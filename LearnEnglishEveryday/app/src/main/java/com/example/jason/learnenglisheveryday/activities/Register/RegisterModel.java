@@ -1,4 +1,4 @@
-package com.example.jason.learnenglisheveryday.activities.SignUp;
+package com.example.jason.learnenglisheveryday.activities.Register;
 
 import android.content.Context;
 
@@ -17,7 +17,7 @@ import retrofit2.Response;
 /**
  * Created by jason on 25/10/2016.
  */
-public class SignUpModel implements ILoginModel {
+public class RegisterModel implements ILoginModel {
     @Override
     public void checkAccount(Context context, String email, String password, final LoginListener listener) {
         List<String> strings = new ArrayList<>();

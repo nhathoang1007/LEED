@@ -1,4 +1,4 @@
-package com.example.jason.learnenglisheveryday.activities.SignUp;
+package com.example.jason.learnenglisheveryday.activities.Register;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -15,7 +15,6 @@ import com.example.jason.learnenglisheveryday.Utils.Utils;
 import com.example.jason.learnenglisheveryday.activities.BaseActivity;
 import com.example.jason.learnenglisheveryday.activities.Login.ILoginPresenter;
 import com.example.jason.learnenglisheveryday.activities.Login.ILoginView;
-import com.example.jason.learnenglisheveryday.activities.Login.LoginPresenter;
 import com.example.jason.learnenglisheveryday.activities.Vocabulary.VocabularyActivity;
 
 import butterknife.BindView;
@@ -25,7 +24,7 @@ import butterknife.OnClick;
 /**
  * Created by jason on 21/10/2016.
  */
-public class SignUpActivity extends BaseActivity implements ILoginView{
+public class RegisterActivity extends BaseActivity implements ILoginView{
 
     @BindView(R.id.editText_username)
     EditText edtEmail;
@@ -44,10 +43,10 @@ public class SignUpActivity extends BaseActivity implements ILoginView{
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
         setupToolbar();
-        mLoginPresenter = new SignUpPresenter(this);
+        mLoginPresenter = new RegisterPresenter(this);
     }
 
     public void setupToolbar(){
@@ -58,12 +57,6 @@ public class SignUpActivity extends BaseActivity implements ILoginView{
                 onBackPressed();
             }
         });
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        setBackAnimation();
     }
 
     @OnClick(R.id.button_sign_up)
@@ -111,5 +104,11 @@ public class SignUpActivity extends BaseActivity implements ILoginView{
                 break;
             default: break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        setBackAnimation();
     }
 }

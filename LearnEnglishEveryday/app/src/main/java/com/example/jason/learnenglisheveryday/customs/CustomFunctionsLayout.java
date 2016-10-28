@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.balysv.materialripple.MaterialRippleLayout;
 import com.example.jason.learnenglisheveryday.R;
+import com.example.jason.learnenglisheveryday.Utils.Utils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,6 +22,9 @@ public class CustomFunctionsLayout extends LinearLayout {
 
     @BindView(R.id.function_item)
     RelativeLayout functionItem;
+
+    @BindView(R.id.function_title)
+    TextView tvFunctionTitle;
 
     @BindView(R.id.function_rate_textView)
     TextView tvFunctionRate;
@@ -62,6 +66,11 @@ public class CustomFunctionsLayout extends LinearLayout {
 
     public void setOnItemClickListener(ItemClickListener itemClickListener){
         this.itemClickListener = itemClickListener;
+    }
+
+    public void setFunctionTitle(String title){
+        tvFunctionTitle.setText(title);
+        Utils.getInstance().setupHyperLink(tvFunctionTitle);
     }
 
     public interface ItemClickListener{

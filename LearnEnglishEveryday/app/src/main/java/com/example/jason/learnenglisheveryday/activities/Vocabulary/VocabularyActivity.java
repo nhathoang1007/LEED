@@ -5,13 +5,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Button;
-import android.widget.FrameLayout;
 
 import com.example.jason.learnenglisheveryday.R;
 import com.example.jason.learnenglisheveryday.Utils.Utils;
 import com.example.jason.learnenglisheveryday.activities.BaseActivity;
-import com.example.jason.learnenglisheveryday.fragments.TestVocabulary.TestVocabularyFragment;
+import com.example.jason.learnenglisheveryday.fragments.Testing.TestVocabularyFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +36,7 @@ public class VocabularyActivity extends BaseActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Utils.getInstance().ReplaceFirstFragment(activity, new TestVocabularyFragment(), R.id.content_fragment);
+                Utils.getInstance().replaceFirstFragment(activity, new TestVocabularyFragment(), R.id.content_fragment);
             }
         });
     }
